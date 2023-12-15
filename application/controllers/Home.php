@@ -19,7 +19,8 @@ class Home extends CI_Controller
         $data['title'] = 'Role Access';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['active'] = $this->db->get_where('user', ['id' => 4])->row_array();
-        $this->db->where('id !=', 9); //hilangkan adam dari list
+        $this->db->join('user_role', 'user_role.id = user.role_id');
+        $this->db->where('user.id !=', 9); //hilangkan adam dari list
         $this->db->where('role_id >=', 3); //tampilkan hanya DTDC
         // $this->db->and_where('role_id =', 4); //tampilkan hanya DTDC
 

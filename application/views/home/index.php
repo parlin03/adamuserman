@@ -41,6 +41,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Fullname</th>
                                         <th scope="col">Username</th>
+                                        <th scope="col">Jabatan</th>
                                         <th class="text-center" scope="col">Access</th>
                                     </tr>
                                 </thead>
@@ -54,6 +55,7 @@
                                             </th>
                                             <td><?= $m['name']; ?></td>
                                             <td><?= $m['username']; ?></td>
+                                            <td><?= $m['role']; ?></td>
                                             <td class="text-center">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" <?= ($m['is_active'] == 1) ? "checked='checked'" : ""; ?> data-active="<?= $m['is_active']; ?>" data-id="<?= $m['id']; ?>">
