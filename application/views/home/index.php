@@ -22,9 +22,9 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-8">
+                <div class="col-12">
                     <div class="card">
-                        <!-- <?= $this->session->flashdata('changeaccess'); ?> -->
+                        <?= $this->session->flashdata('message'); ?>
 
 
                         <div class="card-header">
@@ -58,7 +58,7 @@
                                             <td><?= $m['role']; ?></td>
                                             <td class="text-center">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" <?= ($m['is_active'] == 1) ? "checked='checked'" : ""; ?> data-active="<?= $m['is_active']; ?>" data-id="<?= $m['id']; ?>">
+                                                    <input class="form-check-input" type="checkbox" <?= ($m['is_active'] == 1) ? "checked='checked'" : ""; ?> data-active="<?= $m['is_active']; ?>" data-id="<?= $m['id']; ?>" data-user="<?= $m['username']; ?>">
                                                 </div>
                                             </td>
                                         </tr>
@@ -89,18 +89,24 @@
 
     $('.form-check-input').on('click', function() {
         const userId = $(this).data('id');
+        const userName = $(this).data('user');
         const activeId = $(this).data('active');
+        // console.log(userId);
         // console.log(activeId);
         $.ajax({
             url: "<?= base_url('home/changeaccess') ?>",
             type: 'post',
             data: {
                 userId: userId,
+                userName: userName,
                 activeId: activeId
             },
             success: function() {
-                document.location.href = "<?= base_url('home') ?>";
+                // window.alert("sometext");
+
+                document.location.href = "<?= base_url('home/index') ?>";
             }
         });
+        // console.log(data);
     });
 </script>
