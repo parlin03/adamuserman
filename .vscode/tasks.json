@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "assets/vendor/fontawesome-free",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: install - assets/vendor/fontawesome-free",
+			"detail": "install dependencies from package"
+		}
+	]
+}
